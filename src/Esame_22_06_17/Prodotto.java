@@ -1,24 +1,25 @@
-package EsameGiugno2;
+package Esame_22_06_17;
 
 public class Prodotto {
     private String nome;
     private Fornitore fornitore;
     private float prezzo;
-    public enum Categoria {
+    public enum CategoriaProdotti {
         calzature, magliette, intimo
     }
+    private CategoriaProdotti categoria;
+
     public enum Destinatario {
         uomo, donna, unisex
     }
-    private Categoria categoria;
     private Destinatario destinatario;
 
-    public Prodotto(String nome, float prezzo, Categoria categoria, Destinatario destinatario, Fornitore fornitore) {
+    public Prodotto(String nome, Fornitore fornitore, float prezzo, CategoriaProdotti categoria, Destinatario destinatario) {
         this.nome = nome;
+        this.fornitore = fornitore;
         this.prezzo = prezzo;
         this.categoria = categoria;
         this.destinatario = destinatario;
-        this.fornitore = fornitore;
     }
 
     public String getNome() {
@@ -29,6 +30,14 @@ public class Prodotto {
         this.nome = nome;
     }
 
+    public Fornitore getFornitore() {
+        return fornitore;
+    }
+
+    public void setFornitore(Fornitore fornitore) {
+        this.fornitore = fornitore;
+    }
+
     public float getPrezzo() {
         return prezzo;
     }
@@ -37,11 +46,11 @@ public class Prodotto {
         this.prezzo = prezzo;
     }
 
-    public Categoria getCategoria() {
+    public CategoriaProdotti getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(CategoriaProdotti categoria) {
         this.categoria = categoria;
     }
 
@@ -51,24 +60,5 @@ public class Prodotto {
 
     public void setDestinatario(Destinatario destinatario) {
         this.destinatario = destinatario;
-    }
-
-    public Fornitore getFornitore() {
-        return fornitore;
-    }
-
-    public void setFornitore(Fornitore fornitore) {
-        this.fornitore = fornitore;
-    }
-
-    @Override
-    public String toString() {
-        return "Prodotto{" +
-                "nome='" + nome + '\'' +
-                ", prezzo=" + prezzo +
-                ", categoria=" + categoria +
-                ", destinatario=" + destinatario +
-                ", fornitore='" + fornitore + '\'' +
-                '}';
     }
 }

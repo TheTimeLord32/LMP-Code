@@ -1,4 +1,4 @@
-package SoluzioneGiugno;
+package Soluzione_22_06_17;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

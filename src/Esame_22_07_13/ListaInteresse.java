@@ -1,4 +1,4 @@
-package EsameLuglio;
+package Esame_22_07_13;
 
 public class ListaInteresse {
     private String interesse;

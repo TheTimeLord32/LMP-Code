@@ -1,4 +1,4 @@
-package SoluzioneGiugno;
+package Soluzione_22_06_17;
 
 public class Fornitore {
 	private String nome;

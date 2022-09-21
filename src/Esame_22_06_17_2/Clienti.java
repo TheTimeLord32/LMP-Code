@@ -1,4 +1,4 @@
-package EsameGiugno2;
+package Esame_22_06_17_2;
 
 public class Clienti {
     private String nome, email;
