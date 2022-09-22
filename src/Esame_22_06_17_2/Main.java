@@ -2,6 +2,7 @@ package Esame_22_06_17_2;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -47,27 +48,22 @@ public class Main {
     }
 
     // nuovo cliente
-    public static void nuovoCliente(String nome, String email) {
-        clienti.add(new Clienti(nome, email));
-    }
+    public static void nuovoCliente(String nome, String email) { clienti.add(new Clienti(nome, email)); }
 
     // nuovo fornitore
-    public static void nuovoFornitore(String nome, String prodotto, int quantita) {
-        fornitori.add(new Fornitore(nome, prodotto, quantita));
-    }
+    public static void nuovoFornitore(String nome, String prodotto, int quantita) { fornitori.add(new Fornitore(nome, prodotto, quantita)); }
 
     // nuovo prodotto
-    public static void nuovoProdotto(String nome, float prezzo, Fornitore fornitore) {
-        prodotti.add(new Prodotto(nome, prezzo,  Prodotto.Categoria.magliette, Prodotto.Destinatario.uomo, fornitore));
-    }
+    public static void nuovoProdotto(String nome, float prezzo, Fornitore fornitore) { prodotti.add(new Prodotto(nome, prezzo,  Prodotto.Categoria.magliette, Prodotto.Destinatario.uomo, fornitore)); }
 
     // acquisti misti (tutti clienti e tutti prodotti)
     public static void acquisti(String nome) {
-        for (Acquisti a : acquisti) {
+        /*for (Acquisti a : acquisti) {
             if (a.getClienti().toString().contains(nome)) {
                 System.out.println("Ordine per " + nome + " trovato: " + a.getClienti() + a.getProdotti());
             }
-        }
+        }*/
+        System.out.println(acquisti.stream().filter(acquisti -> acquisti.getClienti().getNome().equals(nome)).collect(Collectors.toList()));
     }
 
     // trova occorrenze prodotto
