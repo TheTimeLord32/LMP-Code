@@ -1,0 +1,17 @@
+liessereLaListaOrdinataDiUnaLista(L,LO):-
+    permutazione(L,LO),
+    ordinata(LO).
+
+permutazione([],[]).
+permutazione([H|T],LPermPiuH):-
+  	permutazione(T,LPerm),
+    lista_con_elemento_in_piu(H,LPerm,LPermPiuH).
+
+lista_con_elemento_in_piu(X,L,[X|L]).
+lista_con_elemento_in_piu(X,[Y|L],[Y|Lcon]):-
+    lista_con_elemento_in_piu(X,L,Lcon).
+    
+ordinata([_]):- !.
+ordinata([X1,X2|T]):-
+    X1 =< X2,
+    ordinata([X2|T]).

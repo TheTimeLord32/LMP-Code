@@ -1,0 +1,12 @@
+myfunctor(Term,Nome,Arita):-
+    Term =.. [Nome|T],
+    length(T,Arita).
+
+myarg(Arg,Term,Value):-
+    Term =.. [_|T],
+    posizione(Arg,T,Value).
+
+posizione(1,[H|_],H).
+posizione(NUMERO,[_|T],ELEMENTO):-
+    posizione(NUMEROMENO1,T,ELEMENTO),
+    NUMERO is NUMEROMENO1 + 1.

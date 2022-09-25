@@ -1,0 +1,8 @@
+flatten([],[]).
+flatten(A,[A]):-
+    atomic(A),
+    A \= [].
+flatten([H|T], F):-
+    flatten(H, M),
+    flatten(T,N),
+    append(M,N,F).

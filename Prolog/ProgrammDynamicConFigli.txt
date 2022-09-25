@@ -1,0 +1,24 @@
+:- dynamic figli_appoggio/1.
+
+padre(gino,pino).
+padre(gino,rino).
+padre(gino,dino).
+
+
+figli_appoggio([]).
+
+figli(X,Y):-
+    assert(figli_appoggio([])),
+    figli_w(X,Y).
+
+figli_w(X,_):-
+    padre(X,F),
+    figli_appoggio(Y),
+    assert(figli_appoggio(F|Y)),
+    retract(figli_appoggio(Y)),
+    fail.
+
+figli_w(_,Y):-
+    !,
+    figli_appoggio(Y),
+    retract(figli_appoggio(Y)).

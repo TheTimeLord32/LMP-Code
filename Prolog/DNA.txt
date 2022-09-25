@@ -1,0 +1,22 @@
+ % append_ext(ListaDiListe,ListaConcatenataDellaListaDiListe):-
+
+append_ext([L1,L2],L1L2):-
+    append(L1,L2,L1L2).
+
+append_ext([L1|R],L1R):-
+    append_ext(R,RAPP),
+    append(L1,RAPP,L1R).
+
+edge(DNA1,DNA2):-
+    length(B,3),
+    length(D,3),
+    append_ext([A,B,C,D,F],DNA1),
+    append_ext([A,D,C,B,F],DNA2).
+
+
+edge(DNA1,DNA2):-
+    append_ext([A,[B,B],C],DNA1),
+    append_ext([A,[X,X],B,F],DNA2),
+    nucleotida(X).
+    
+   

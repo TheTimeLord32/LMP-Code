@@ -1,0 +1,22 @@
+somma_cifre(0,0,0,0).
+somma_cifre(0,1,0,1).
+somma_cifre(0,2,0,2).
+somma_cifre(1,0,0,1).
+somma_cifre(1,1,0,2).
+somma_cifre(1,2,1,0).
+somma_cifre(2,0,0,2).
+somma_cifre(2,1,1,0).
+somma_cifre(2,2,1,1).
+
+somma([],N,N,0).
+somma([],N,N1,1):-
+    somma([1],N,N1,0).
+somma(N,[],N,0).
+somma(N,[],N1,1):-
+    somma(N,[1],N1,0).
+
+somma([C1|T1],[C2|T2],[C3|T3],R):-
+    somma_cifre(C1,C2,NRT,CT),
+    somma_cifre(CT,R,NRX,C3),
+    somma_cifre(NRT,NRX,_,NR),
+	somma(T1,T2,T3,NR).

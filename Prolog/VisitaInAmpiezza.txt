@@ -1,0 +1,29 @@
+e(a,b).
+e(b,c).
+e(c,d).
+e(d,e).
+e(f,e).
+e(a,e).
+e(c,a).
+
+path(A,B):-
+    raggiungibile(F,[A]),
+    member(B,F).
+
+raggiungibile(NuovaFrontiera,VecchiaFrontiera):-
+     raggiungibileConUnArcoDa(NuovaFrontiera,VecchiaFrontiera).
+raggiungibile(NuovaFrontiera,VecchiaFrontiera):-
+    raggiungibileConUnArcoDa(NuovaFrontieraI,VecchiaFrontiera),
+    raggiungibile(NuovaFrontiera,NuovaFrontieraI).
+
+raggiungibileConUnArcoDa([],[]).
+raggiungibileConUnArcoDa(NuovaFrontiera,[A|R]):-
+    raggiungibileConUnArcoDa(NuovaFrontieraDaA,A),
+    raggiungibileConUnArcoDa(NuovaFrontieraDaR,R),
+    append(NuovaFrontieraDaA,NuovaFrontieraDaR,NuovaFrontiera).
+
+
+raggiungibileConUnArcoDaUnNodo(NuovaFrontiera,N):-
+    setof(Z,e(N,Z),NuovaFrontiera),!.
+
+raggiungibileConUnArcoDaUnNodo([],_).

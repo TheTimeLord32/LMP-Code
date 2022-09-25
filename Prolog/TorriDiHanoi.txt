@@ -1,0 +1,35 @@
+
+edge(s([A|T1],[],T3),s(T1,[A],T3)).
+edge(s([A|T1],T2,[]),s(T1,T2,[A])).
+edge(s([],[A|T2],T3),s([A],T2,T3)).
+edge(s(T1,[A|T2],[]),s(T1,T2,[A])).
+edge(s([],T2,[A|T3]),s([A],T2,T3)).
+edge(s(T1,[],[A|T3]),s(T1,[A],T3)).
+
+edge(s([A|T1],[B|T2],T3),s(T1,[A|[B|T2]],T3)):-
+    A @< B.
+
+edge(s([A|T1],T2,[B|T3]),s(T1,T2,[A|[B|T3]])):-
+     A @< B.
+
+edge(s([B|T1],[A|T2],T3),s([A|[B|T1]],T2,T3)):-
+     A @< B.
+
+edge(s(T1,[A|T2],[B|T3]),s(T1,T2,[A|[B|T3]])):-
+     A @< B.
+
+edge(s([B|T1],T2,[A|T3]),s([A|[B|T1]],T2,T3)):-
+     A @< B.
+
+edge(s(T1,[B|T2],[A|T3]),s(T1,[A|[B|T2]],T3)):-
+     A @< B.
+
+path(A,B,[A,B]):-
+    edge(A,B).
+path(A,C,[A|PATH]):-
+    edge(A,B),
+    path(B,C,PATH),
+    !.
+
+
+%?-path(s([a,b,c],[],[]),s([],[],[a,b,c]),PATH).

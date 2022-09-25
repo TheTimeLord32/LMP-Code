@@ -1,0 +1,9 @@
+pari([],[]).
+
+pari([Num|Rest1],[Num|Rest2]):-
+    0 is Num mod 2,
+    pari(Rest1,Rest2).
+
+pari([Num|Rest1],Rest2):-
+    1 is Num mod 2,
+    pari(Rest1,Rest2).

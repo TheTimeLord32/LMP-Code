@@ -1,0 +1,7 @@
+reverse([X],[X]).
+
+reverse([X|T1],LR):-
+    reverse(T1,Z),
+    append(Z,[X],LR).
+    
+           

@@ -1,0 +1,8 @@
+a2b([],[]).
+
+a2b([_|T1], [_|T2]):-
+    a2b(T1, T2).
+
+append([], L, L).
+append([H|T], L2, [H|L3]):-
+    append(T, L2, L3).

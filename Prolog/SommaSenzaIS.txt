@@ -1,0 +1,124 @@
+somma_cifre(0,0,0,0).
+somma_cifre(1,0,0,1).
+somma_cifre(2,0,0,2).
+somma_cifre(3,0,0,3).
+somma_cifre(4,0,0,4).
+somma_cifre(5,0,0,5).
+somma_cifre(6,0,0,6).
+somma_cifre(7,0,0,7).
+somma_cifre(8,0,0,8).
+somma_cifre(9,0,0,9).
+somma_cifre(0,1,0,1).
+somma_cifre(1,1,0,2).
+somma_cifre(2,1,0,3).
+somma_cifre(3,1,0,4).
+somma_cifre(4,1,0,5).
+somma_cifre(5,1,0,6).
+somma_cifre(6,1,0,7).
+somma_cifre(7,1,0,8).
+somma_cifre(8,1,0,9).
+somma_cifre(9,1,1,0).
+somma_cifre(0,2,0,2).
+somma_cifre(1,2,0,3).
+somma_cifre(2,2,0,4).
+somma_cifre(3,2,0,5).
+somma_cifre(4,2,0,6).
+somma_cifre(5,2,0,7).
+somma_cifre(6,2,0,8).
+somma_cifre(7,2,0,9).
+somma_cifre(8,2,1,0).
+somma_cifre(9,2,1,1).
+somma_cifre(0,3,0,3).
+somma_cifre(1,3,0,4).
+somma_cifre(2,3,0,5).
+somma_cifre(3,3,0,6).
+somma_cifre(4,3,0,7).
+somma_cifre(5,3,0,8).
+somma_cifre(6,3,0,9).
+somma_cifre(7,3,1,0).
+somma_cifre(8,3,1,1).
+somma_cifre(9,3,1,2).
+somma_cifre(0,4,0,4).
+somma_cifre(1,4,0,5).
+somma_cifre(2,4,0,6).
+somma_cifre(3,4,0,7).
+somma_cifre(4,4,0,8).
+somma_cifre(5,4,0,9).
+somma_cifre(6,4,1,0).
+somma_cifre(7,4,1,1).
+somma_cifre(8,4,1,2).
+somma_cifre(9,4,1,3).
+somma_cifre(0,5,0,5).
+somma_cifre(1,5,0,6).
+somma_cifre(2,5,0,7).
+somma_cifre(3,5,0,8).
+somma_cifre(4,5,0,9).
+somma_cifre(5,5,1,0).
+somma_cifre(6,5,1,1).
+somma_cifre(7,5,1,2).
+somma_cifre(8,5,1,3).
+somma_cifre(9,5,1,4).
+somma_cifre(0,6,0,6).
+somma_cifre(1,6,0,7).
+somma_cifre(2,6,0,8).
+somma_cifre(3,6,0,9).
+somma_cifre(4,6,1,0).
+somma_cifre(5,6,1,1).
+somma_cifre(6,6,1,2).
+somma_cifre(7,6,1,3).
+somma_cifre(8,6,1,4).
+somma_cifre(9,6,1,5).
+somma_cifre(0,7,0,7).
+somma_cifre(1,7,0,8).
+somma_cifre(2,7,0,9).
+somma_cifre(3,7,1,0).
+somma_cifre(4,7,1,1).
+somma_cifre(5,7,1,2).
+somma_cifre(6,7,1,3).
+somma_cifre(7,7,1,4).
+somma_cifre(8,7,1,5).
+somma_cifre(9,7,1,6).
+somma_cifre(0,8,0,8).
+somma_cifre(1,8,0,9).
+somma_cifre(2,8,1,0).
+somma_cifre(3,8,1,1).
+somma_cifre(4,8,1,2).
+somma_cifre(5,8,1,3).
+somma_cifre(6,8,1,4).
+somma_cifre(7,8,1,5).
+somma_cifre(8,8,1,6).
+somma_cifre(9,8,1,7).
+somma_cifre(0,9,0,9).
+somma_cifre(1,9,1,0).
+somma_cifre(2,9,1,1).
+somma_cifre(3,9,1,2).
+somma_cifre(4,9,1,3).
+somma_cifre(5,9,1,4).
+somma_cifre(6,9,1,5).
+somma_cifre(7,9,1,6).
+somma_cifre(8,9,1,7).
+somma_cifre(9,9,1,8).
+
+
+somma([],[],0,[]).
+somma([],[],1,[1]).
+
+somma([],[YH|YT],R,[ZH|ZT]):-
+   somma_cifre(YH,R,R1,ZH),
+   somma([],YT,R1,ZT).
+
+somma([XH|XT],[],R,[ZH|ZT]):-
+    somma_cifre(XH,R,R1,ZH),
+    somma(XT,[],R1,ZT).
+
+somma([XH|XT],[YH|YT],R,[ZH|ZT]):-
+    somma_cifre(XH,YH,R1,X1),
+    somma_cifre(X1,R1,R2,ZH),
+    somma_cifre(R1,R2,0,Resto),
+    somma(XT,YT,Resto,ZT).
+
+somma(X,Y,Z):-
+    reverse(X,X1),
+    reverse(Y,Y1),
+    reverse(Z,Z1),
+    somma(X1,Y1,0,Z1),!.

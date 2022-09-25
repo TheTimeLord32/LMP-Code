@@ -1,0 +1,21 @@
+/*s(T1,T2,T3).
+s([a,b,c],[],[]).
+s([],[a,b,c],[]).
+edge(S1,S2)
+*/
+
+edge(s([A|T1],[B|T2],T3),s(T1,[A|[B|T2]],T3)):-
+    A <@ B.  
+edge(s([A|T1],[],T3),s(T1,[A],T3)).
+edge(s([A|T],T2,[B|T3]),s(T1,T2,[A|[BT3]])):-
+    A <@ B. 
+
+%simple version
+path(A,B,[A,B]):-
+    edge(A,B).
+
+path(A,B,[A|PATH]):-
+    edge(A,C),
+    path(C,B,PATH).
+
+?-path(s([a,b,c],[],[]),s([],[],[a,b,c])PATH)

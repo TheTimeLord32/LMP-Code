@@ -1,0 +1,17 @@
+nodiRagg(X,L):-
+    setof(Y,edge(X,Y),L).
+
+%frontRaggDaFront(F1,F2)
+frontRaggDaFront([],[]).
+frontRaggDaFront([A|L1],F2):-
+    nodiRagg(A,N_A),
+    frontRaggDaFront(L1,F3),
+    append(N_A,F3,F2).
+
+path(X,Y):-
+    nodoRaggDaFront([X],Y).
+
+nodoRaggDaFront(L,Y):-
+    frontRaggDaFront(L,L1),!,
+    (member(Y,L1);
+	nodoRaggDaFront(L1,Y)).

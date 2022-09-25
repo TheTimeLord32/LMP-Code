@@ -1,0 +1,18 @@
+ordinata([A],[A]).
+ordinata([],[]).
+
+ordinata([P|L],LO):-
+    diviso_in_parti(P,L,L1,L2),
+    write((L1,L2)),nl,
+    ordinata(L1,LO1),
+    ordinata(L2,LO2),
+    append(LO1,[P|LO2],LO).
+    
+diviso_in_parti(_,[],[],[]).
+diviso_in_parti(P,[X|R],[X|R1],R2):-
+    X =< P,
+    diviso_in_parti(P,R,R1,R2).
+
+diviso_in_parti(P,[X|R],R1,[X|R2]):-
+    X > P,
+    diviso_in_parti(P,R,R1,R2).

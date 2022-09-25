@@ -1,0 +1,29 @@
+
+
+
+e(g,f).
+e(c,b).
+e(c,d).
+e(f,e).
+e(d,e).
+
+ricerca_paths([H|T],PATHS):-
+    setof([X,H|T],e(H,X),PATHS).
+
+espandi_frontiera([],[]).
+espandi_frontiera([P|RP],PATHS):-
+    ricerca_paths(P,P_PATHS),
+    espandi_frontiera(RP,R_PATHS),
+    append(P_PATHS,R_PATHS,PATHS).
+
+espandi_front_path(F1,F2):-
+    espandi_frontiera(F1,F2).
+
+espandi_front_path(F1,F2):-
+    espandi_frontiera(F1,F3),
+    espandi_front_path(F3,F2).
+
+
+path3(X,Y,[Y|PATH]):-
+    espandi_front_path([[X]],PATHS),
+    member([Y|PATH],PATHS).

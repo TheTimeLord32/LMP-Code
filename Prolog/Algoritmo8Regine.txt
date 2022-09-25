@@ -1,0 +1,17 @@
+soluzione([]).
+soluzione([X/Y|RESTO]):-
+    member(Y,[1,2,3,4,5,6,7,8]),
+    soluzione(RESTO),
+    non_minaccia(X/Y,RESTO).
+
+non_minaccia(_/_,[]).
+non_minaccia(X/Y,[X1/Y1|RESTO]):-
+    non_si_minacciano(X/Y,X1/Y1),
+    non_minaccia(X/Y,RESTO). 
+
+non_si_minacciano(X/Y,X1/Y1):-
+    X =/= X1,
+    Y =/= Y1,
+    Y1-Y =/= X1-X,
+    Y1-Y =/= X-X1.
+    

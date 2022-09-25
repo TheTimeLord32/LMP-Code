@@ -1,0 +1,6 @@
+:-op(400,xfx,ha).
+:-op(300,xfy,di).
+
+mario ha macchina di dario.
+maria ha computer di dario.
+gennaro ha moto di pina.

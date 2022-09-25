@@ -1,0 +1,35 @@
+	/*	
+		[A1,A2,A3,
+  		A4,A5,A6,
+  		A7,A8,empty]
+	*/
+
+edge([	A1,A2,A3,
+  		A4,A5,A6,
+  		A7,A8,Vuoto],
+     	[A1,A2,A3,
+  		A4,A5,Vuoto,
+  		A7,A8,A6]).
+
+edge([	A1,A2,A3,
+  		A4,A5,A6,
+  		A7,A8,Vuoto],
+     [	A1,A2,A3,
+  		A4,A5,A6,
+  		A7,Vuoto,A8]).
+
+edge([	A1,A2,A3,
+  		A4,A5,Vuoto,
+  		A7,A8,A6],
+     [	A1,A2,Vuoto,
+  		A4,A5,A3,
+  		A7,A8,A6]).
+
+edge([	A1,A2,A3,
+  		A4,A5,Vuoto,
+  		A7,A8,A6],
+     [	A1,A2,A3,
+  		A4,Vuoto,A5,
+  		A7,A8,A6]). 
+
+% ecc... 36 mosse.

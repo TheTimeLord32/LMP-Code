@@ -1,0 +1,14 @@
+e(a,b).
+e(b,c).
+e(c,a).
+e(c,d).
+
+path2(X,Y,[X,Y],LEN_R):-
+    LEN_R > 0,
+    e(X,Y).
+    
+path2(X,Z,[X|PATH],LEN_MAX):-
+    LEN_MAX > 0,
+	e(X,Y),
+    LEN_MAXmenoUno is LEN_MAX - 1,
+    path2(Y,Z,PATH,LEN_MAXmenoUno).

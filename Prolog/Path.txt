@@ -1,0 +1,17 @@
+e(a,b).
+e(b,c).
+e(c,d).
+e(d,e).
+e(f,e).
+e(a,e).
+e(c,a).
+
+path(X,Y,[X,Y],Ln):-
+    e(X,Y),
+    Ln >= 2.
+
+path(X,Z,[X,Y|R],Ln):-
+    e(X,Y),
+    Ln >= 3,
+    Ln1 is Ln - 1,
+    path(Y,Z,[Y|R],Ln1).

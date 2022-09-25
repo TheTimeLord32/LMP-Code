@@ -1,0 +1,28 @@
+mergesorted([],[]).
+mergesorted(L,LO):-
+    length(L,Elle),
+	Ellemezzi is Elle // 2,
+    length(L1,Ellemezzi),
+    append(L1,L2,L),
+    mergesorted(L1,LO1),
+    mergesorted(L2,LO2),
+	merged(LO1,LO2,LO).
+ 
+merged(LO1,LO2,LO):-
+    ordinata(LO1),
+    ordinata(LO2),
+    merged_operativo(LO1,LO2,LO).
+
+ordinata([_]).
+ordinata([H1,H2|T]):-
+	H1 >= H2,
+    ordinata([H2|T]).
+
+merged_operativo([],[],[]).
+merged_operativo([H1|LO1],[H2|LO2],[H1|LO] ):-
+    H1 =< H2,
+    merged_operativo(LO1,[H2|LO2],LO).
+
+merged_operativo([H1|LO1],[H2|LO2],[H2|LO] ):-
+    H1 > H2,
+    merged_operativo([H1|LO1],LO2,LO).

@@ -1,0 +1,12 @@
+path(A,B,[A,B]):-
+    edge(A,B).
+path(A,C,[A|PATH]):-
+    edge(A,B),
+    path(B,C,PATH).
+      
+edge(a,b).
+edge(a,e).
+edge(b,c).
+edge(c,d).
+edge(d,e).
+edge(f,e).

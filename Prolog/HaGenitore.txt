@@ -1,0 +1,12 @@
+
+ha_genitore(dario,mario).
+ha_genitore(gino,mario).
+ha_genitore(pina,mario).
+ha_genitore(gina,maria).
+ha_genitore(gina,mario).
+ha_genitore(rina,maria).
+
+
+fratello(Tizio,Caio):-
+    ha_genitore(Tizio,Sempronio),
+    ha_genitore(Caio,Sempronio).

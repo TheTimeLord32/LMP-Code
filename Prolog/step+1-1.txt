@@ -1,0 +1,12 @@
+regular expression(up|down)+
+
+move(AltezzaRaggiunta)-->step(AltezzaRaggiunta).
+move(AltezzaRaggiunta)-->
+    step(M),
+    move(AltezzaRaggiunta1),
+    {AltezzaRaggiunta is AltezzaRaggiunta1 + M}.
+
+step(+1)-->[up].
+step(-1)-->[down].
+
+move(AltezzaRaggiunta).
