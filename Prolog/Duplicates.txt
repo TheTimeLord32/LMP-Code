@@ -1,0 +1,10 @@
+
+duplicates([],[]).
+
+duplicates([A|R1],R2):-
+    member(A,R1),
+	duplicates(R1,R2).
+
+duplicates([A|R1],[A|R2]):-
+    \+ member(A,R1),
+	duplicates(R1,R2).

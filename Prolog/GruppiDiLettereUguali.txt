@@ -1,0 +1,21 @@
+gruppiDiLettereUguali([],[]).
+
+gruppiDiLettereUguali([H|T],[H|T1]):-
+    member(H,T),
+    privataDi(H,T,T2),
+    gruppiDiLettereUguali(T2,T1).
+
+
+gruppiDiLettereUguali([H|T],T1):-
+    \+member(H,T),
+    gruppiDiLettereUguali(T,T1).
+
+
+privataDi(H,[],[]).
+
+privataDi(H,[H|T],T2):-
+    privataDi(H,T,T2).
+
+privataDi(H,[H1|T],[H1|T2]):-
+    \+(H == H),
+    privataDi(H,T,T2).

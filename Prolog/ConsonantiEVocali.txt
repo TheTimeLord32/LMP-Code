@@ -1,0 +1,9 @@
+%consonantiEVocali(Parola,Consonanti,Vocali)
+
+consonantiEVocali([],[],[]).
+consonantiEVocali([H|T],Cons,[H|Voc]):-
+    member(H,[a,e,i,o,u]),!,
+    consonantiEVocali(T,Cons,Voc).
+
+consonantiEVocali([H|T],[H|Cons],Voc):-
+    consonantiEVocali(T,Cons,Voc).

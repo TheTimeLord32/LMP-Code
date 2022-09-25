@@ -1,0 +1,24 @@
+%maria mangia la mela.
+%mangia(maria,mela).
+
+
+s(Pred)--> np(N), vp(V,Obj), {Pred =.. [V,N,Obj] }.
+vp(V)-->v(V).
+vp(V,Obj)-->v(V),np(Obj).
+
+np(N)-->nome(N).
+np(Subj)-->art(_),nome(Subj).
+
+v(mangia)-->[mangia].
+v(mangia)-->[beve].
+
+nome(maria)-->[maria].
+nome(mario)-->[mario].
+nome(mela)-->[mela].
+nome(pera)-->[pera].
+nome(martini)-->[martini].
+nome(vino)-->[vino].
+
+art(il)-->[il].
+art(la)-->[la].
+art(lo)-->[lo].

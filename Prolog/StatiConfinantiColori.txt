@@ -1,0 +1,24 @@
+n(red,green).
+n(green,red).
+n(blue,red).
+n(yellow,red).
+n(red,blue).
+n(green,blue).
+n(blue,green).
+n(yellow,green).
+n(red,yellow).
+n(green,yellow).
+n(blue,yellow).
+n(yellow,blue).
+
+colors(IT,SI,CR,CH,AT,HU,DE,SV,CZ,PO,SEA):-
+	SEA = blue,
+    n(IT,CH), n(IT,AT), n(IT,SI), n(IT,SEA),
+    n(SI,AT), n(SI,CR), n(SI,HU), n(SI,SEA),
+    n(CR,HU), n(CR,SEA),
+    n(AT,CH), n(AT,DE), n(AT,HU), n(AT,SV), n(AT,CZ),
+    n(CH,DE),
+    n(HU,SV),
+    n(DE,SV), n(DE,CZ), n(DE,PO),
+    n(SV,CZ), n(SV,PO),
+    n(CZ,PO).

@@ -1,0 +1,9 @@
+family(person(pino,rossi,data(1,1,1991),10000),person(pina,gialli,data(1,1,1991),10000),[]).
+family(person(luca,pezzolo,data(12,1,1985),10000),person(lucia,sobri,data(1,1,1992),10000),[]).
+
+esiste_una_family_con_cognome_gen1(X):-
+    family(person(_,X,_,_),_,_).
+
+salario_totale_family_con_cognome_gen1(X,SAL_TOT):-
+    family(person(_,X,_,SAL_TOT),_,_).
+

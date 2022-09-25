@@ -1,0 +1,4 @@
+lunghezza([],0).
+lunghezza([_|T],N):-
+    lunghezza(T,NT),
+    N is NT+1.

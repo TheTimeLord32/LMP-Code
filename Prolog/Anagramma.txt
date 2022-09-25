@@ -1,0 +1,28 @@
+%anagrammi(Parola,ListaAnagrammiParola)
+parola([c,i,a,o]).
+parola([c,a,i,o]).
+parola([l,e,v,i,r,a,t,o]).
+parola([r,e,l,a,t,i,v,o]).
+parola([r,i,l,e,v,a,t,o]).
+parola([r,i,v,e,l,a,t,o]).
+parola([v,e,t,r,i,o,l,a]).
+parola([v,o,l,i,t,a,r,e]).
+parola([v,o,l,t,a,i,r,e]).
+
+anagramma([],[]).
+anagramma(Parola,ParolaAnagrammata):-
+    permutazione(Parola,ParolaAnagrammata),
+    parola(ParolaAnagrammata).
+
+anagrammi(Parola,ListaAnagrammiParola):-
+    setof(Anagr,anagramma(Parola,Anagr),ListaAnagrammiParola).
+
+permutazione([],[]).
+permutazione([H|T],LPermPiuH):-
+  	permutazione(T,LPerm),
+    lista_con_elemento_in_piu(H,LPerm,LPermPiuH).
+
+lista_con_elemento_in_piu(X,L,[X|L]).
+lista_con_elemento_in_piu(X,[Y|L],[Y|Lcon]):-
+    lista_con_elemento_in_piu(X,L,Lcon).
+    

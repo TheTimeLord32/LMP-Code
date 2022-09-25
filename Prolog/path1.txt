@@ -1,0 +1,11 @@
+e(a,b).
+e(b,c).
+e(c,a).
+e(c,d).
+
+path1(X,Y,[X,Y],_):-
+    e(X,Y).
+path1(X,Z,[X|PATH],VISITED):-
+	e(X,Y),
+    \+ member(X,VISITED),
+    path1(Y,Z,PATH,[X|VISITED]).

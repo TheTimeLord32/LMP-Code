@@ -1,0 +1,25 @@
+:- dynamic   tutti_i_risultati_trovati/1.
+
+a(b).
+a(c).
+a(d).
+a(e).
+a(k).
+a(e).
+a(b).
+
+tutti_i_risultati_trovati([]).
+
+all_a(_):-
+    a(X),
+    write(X),
+    nl,
+    tutti_i_risultati_trovati(L),
+    retract(tutti_i_risultati_trovati(L)),
+    assert(tutti_i_risultati_trovati([X|L])),
+    fail.
+
+all_a(P):-
+    tutti_i_risultati_trovati(P),
+    retract(tutti_i_risultati_trovati(P)),
+    assert(tutti_i_risultati_trovati([])).

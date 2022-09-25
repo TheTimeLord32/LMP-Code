@@ -1,0 +1,9 @@
+massimo([M],M).
+
+massimo([H|T],M):-
+    massimo(T,M),
+    H =< M.
+
+massimo([H|T],H):-
+    massimo(T,M),
+    H > M.

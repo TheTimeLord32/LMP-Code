@@ -1,0 +1,8 @@
+pari_dispari([],[],[]).
+pari_dispari([Num|Rest],[Num|Pari],Dispari):-
+    0 is Num mod 2,
+    pari_dispari(Rest,Pari,Dispari).
+
+pari_dispari([Num|Rest],Pari,[Num|Dispari]):-
+    1 is Num mod 2,
+    pari_dispari(Rest,Pari,Dispari).

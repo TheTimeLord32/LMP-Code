@@ -1,0 +1,30 @@
+count1(_,[],0).
+count1(X,[X|T],NUM_VOLTE):-
+    count1(X,T,N),
+	NUM_VOLTE is N + 1.
+    
+count1(X,[X1|T],NUM_VOLTE):-
+    X1 \= X,
+    count1(X,T,NUM_VOLTE).
+
+
+count2(_,[],0).
+count2(X,[X|T],NUM_VOLTE):-
+    !,
+    count2(X,T,N),
+	NUM_VOLTE is N + 1.
+    
+count2(A,[_|T],NUM_VOLTE):-
+    count2(A,T,NUM_VOLTE).
+
+
+count3(_,[],0).
+count3(A1,[A2|T],NUM_VOLTE):-
+   	nonvar(A2),
+    A1 = A2,
+    !,
+    count3(A1,T,N),
+	NUM_VOLTE is N + 1.
+    
+count3(A,[_|T],NUM_VOLTE):-
+    count3(A,T,NUM_VOLTE).

@@ -1,0 +1,14 @@
+:- dynamic f/2.
+
+f(0,0):- !.
+f(1,1):- !.
+
+f(N,M):-
+    N >= 2,
+    !,
+    N_meno_1 is N-1,
+    f(N_meno_1,M1),
+    N_meno_2 is N-2,
+    f(N_meno_2,M2),
+    M is M1 + M2,
+	asserta(f(N,M):-!).

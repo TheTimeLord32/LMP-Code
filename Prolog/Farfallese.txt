@@ -1,0 +1,13 @@
+
+in_farfallese([],[]).
+in_farfallese([A|R1],[A,f,A|R2]):-
+    vocale(A),
+    in_farfallese(R1,R2).
+
+in_farfallese([A|R1],[A|R2]):-
+    \+ vocale(A),
+    in_farfallese(R1,R2).
+
+
+vocale(A):-
+    member(A,[a,e,i,o,u]).

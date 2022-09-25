@@ -1,0 +1,22 @@
+
+%t(1,[t(2,[t(1,[]),t(2,[]),t(4,[])]),t(3,[t(4,[t(1,[]),t(3,[])]),t(5,[])])])
+  
+
+sottoalbero_r(t(A,_),t(A,[])).
+sottoalbero_r(t(A,LF),t(A,LFF)):-
+    \+ LF == [],
+    sottoalberi_r(LF,LFF).
+
+sottoalberi_r([],[]).
+sottoalberi_r([A|LF],[SA|LFF]):-
+    sottoalbero_r(A,SA),
+    sottoalberi_r(LF,LFF).
+
+sottoalbero(t(_,FS),TS):-
+ 	member(T,FS),
+    sottoalbero_r(T,TS).    
+sottoalbero(T,TS):-
+    sottoalbero_r(T,TS).
+
+sottoalberi(T,TSS):-
+    setof(TS,sottoalbero(T,TS),TSS).

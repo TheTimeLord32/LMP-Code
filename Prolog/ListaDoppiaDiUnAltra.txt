@@ -1,0 +1,12 @@
+%doppia(L1,L2)
+
+doppia([],[]).
+doppia(L1,L2):-
+    length(L1,N1),
+    length(L2,N2),
+    N1 is N2*2.
+
+%Piu elegante e semplice
+doppia2([],[]).
+doppia2([_,_|RL1],[_|RL2]):-
+    doppia2(RL1,RL2).

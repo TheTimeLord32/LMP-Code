@@ -1,0 +1,4 @@
+somma([],0).
+somma([H|T],S):-
+    somma(T,S1),
+    S is S1+H.

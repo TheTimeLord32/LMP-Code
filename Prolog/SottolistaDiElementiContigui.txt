@@ -1,0 +1,11 @@
+%sottoListeDiNElementiContiguiDiUnaLista(Lista,Sottoliste,N).
+
+sott(L,Sottolista,N):-
+    length(Sottolista,N),
+    append(L3,_,L),
+    append(_,Sottolista,L3).
+   
+
+sottoListeDiNElementiContiguiDiUnaLista(Lista,Sottoliste,N):-
+    bagof(Sott,sott(Lista,Sott,N),Sottoliste).
+

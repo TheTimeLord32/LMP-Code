@@ -1,0 +1,14 @@
+prova(P):-
+    P.
+
+k(a).
+k(b).
+k1(a).
+k1(b).
+
+my_not(P):-
+    P,
+    !,
+    fail.
+
+my_not(_).

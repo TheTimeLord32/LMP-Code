@@ -1,0 +1,15 @@
+%t(a,[t(a,[t(c),[]),t(d,[])]),t(b,[])]).
+
+sotto_albero_da_radice(t(R,[_|_],t(R,[]))).
+sotto_albero_da_radice(t(R,L),t(R,L1)):-
+    l_s_d_r(L,L1).
+
+l_s_d_r([],[]).
+l_s_d_r([T|LT],[ST|LST]):-
+    sotto_albero_da_radice(T,ST),
+    l_s_d_r(LT,LST).
+
+sotto_alberi_da_radice(T,STs):-
+	bagof(ST,sotto_albero_da_radice(T,ST),STs).
+
+%sotto_albero(T,ST)
