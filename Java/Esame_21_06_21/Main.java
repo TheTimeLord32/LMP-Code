@@ -12,8 +12,13 @@ public class Main {
         componente.add(nuovoComponente("Tasti", "Azienda1", 4, 12, 120));
         componente.add(nuovoComponente("PCB", "Azienda2", 3, 10, 1));
         componente.add(nuovoComponente("Led", "Azienda3", 2, 5, 120));
+        componente.add(nuovoComponente("Cavi", "Azienda4", 1, 3, 120));
 
-        prodotto.add(nuovoProdotto("Key01", "Tastiera", (calcoloTempo(componente) * coefficienteNegozio) + calcoloCosto(componente), 30, componente, calcoloTempo(componente), 10));
+        prodotto.add(nuovoProdotto("Key01", "Tastiera", 0, 30, new ArrayList<Componente>(), 0, 10));
+        prodotto.get(0).getComponente().add(componente.get(0));
+        prodotto.get(0).getComponente().add(componente.get(1));
+        prodotto.get(0).setGiorniProduzione(calcoloTempo(prodotto.get(0).getComponente()));
+        prodotto.get(0).setCostoProduzione((prodotto.get(0).getGiorniProduzione() * coefficienteNegozio) + calcoloCosto(prodotto.get(0).getComponente()));
 
         System.out.println("Prodotto: " + prodotto);
         System.out.println("Percentuale guadagno: " + ranking(prodotto));
