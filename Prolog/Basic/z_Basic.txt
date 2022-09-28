@@ -1,0 +1,22 @@
+control(X, [X|_]).
+control(X, [_|T]):-
+    control(X, T).
+
+aggiungi([], L, L).
+aggiungi([H|T], L, [H|L1]):-
+    aggiungi(T, L, L1).
+
+inverti([X], [X]).
+inverti([H|T], Z):-
+    inverti(T, L),
+    append(L, [H], Z).
+
+flatten([], []).
+flatten(X, [X]):-
+    atomic(X),
+    X \= [].
+flatten([H|T], L):-
+    flatten(H, Z),
+    flatten(T, Y),
+    append(Z, Y, L).
+

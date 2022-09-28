@@ -18,3 +18,5 @@ accepts(State,[X|Rest]):-
 accepts(State,Rest):-
     silent(State,NextState),
     accepts(NextState,Rest).
+
+% ?- trace,accepts(s1,[a,b]).

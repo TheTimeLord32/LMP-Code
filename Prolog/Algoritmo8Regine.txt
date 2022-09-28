@@ -10,8 +10,7 @@ non_minaccia(X/Y,[X1/Y1|RESTO]):-
     non_minaccia(X/Y,RESTO). 
 
 non_si_minacciano(X/Y,X1/Y1):-
-    X =/= X1,
-    Y =/= Y1,
-    Y1-Y =/= X1-X,
-    Y1-Y =/= X-X1.
-    
+    X =\= X1,
+    Y =\= Y1,
+    Y1-Y =\= X1-X,
+    Y1-Y =\= X-X1.

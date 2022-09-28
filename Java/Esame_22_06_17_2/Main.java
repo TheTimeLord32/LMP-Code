@@ -12,17 +12,17 @@ public class Main {
     private static final ArrayList<Acquisti> acquisti = new ArrayList<>();
 
     public static void main(String[] args) {
-        nuovoCliente("Thomas", "thomas@gmail.com");
-        nuovoCliente("Kevin", "kevin@gmail.com");
+        clienti.add(nuovoCliente("Thomas", "thomas@gmail.com"));
+        clienti.add(nuovoCliente("Kevin", "kevin@gmail.com"));
 
         nuovoFornitore("Nike", "T-Shirt", 20);
         nuovoFornitore("Adidas", "Scarpe", 10);
         nuovoFornitore("Puma", "Pantaloni", 15);
 
-        nuovoProdotto("T-Shirt", 15, fornitori.get(0));
-        nuovoProdotto("T-Shirt", 15, fornitori.get(0));
-        nuovoProdotto("T-Shirt", 15, fornitori.get(0));
-        nuovoProdotto("Pullover", 15, fornitori.get(1));
+        prodotti.add(nuovoProdotto("T-Shirt", 15, Prodotto.Categoria.magliette, Prodotto.Destinatario.uomo, fornitori.get(0)));
+        prodotti.add(nuovoProdotto("T-Shirt", 15, Prodotto.Categoria.calzature, Prodotto.Destinatario.donna, fornitori.get(0)));
+        prodotti.add(nuovoProdotto("T-Shirt", 15, Prodotto.Categoria.intimo, Prodotto.Destinatario.unisex, fornitori.get(0)));
+        prodotti.add(nuovoProdotto("Pullover", 15, Prodotto.Categoria.magliette, Prodotto.Destinatario.uomo, fornitori.get(1)));
 
         acquisti.add(new Acquisti(clienti.get(0), prodotti.get(0), LocalDate.now()));
         acquisti.add(new Acquisti(clienti.get(0), prodotti.get(1), LocalDate.now()));
@@ -48,13 +48,15 @@ public class Main {
     }
 
     // nuovo cliente
-    public static void nuovoCliente(String nome, String email) { clienti.add(new Clienti(nome, email)); }
+    public static Clienti nuovoCliente(String nome, String email) { return new Clienti(nome, email); }
 
     // nuovo fornitore
     public static void nuovoFornitore(String nome, String prodotto, int quantita) { fornitori.add(new Fornitore(nome, prodotto, quantita)); }
 
     // nuovo prodotto
-    public static void nuovoProdotto(String nome, float prezzo, Fornitore fornitore) { prodotti.add(new Prodotto(nome, prezzo,  Prodotto.Categoria.magliette, Prodotto.Destinatario.uomo, fornitore)); }
+    public static Prodotto nuovoProdotto(String nome, float prezzo, Prodotto.Categoria categoria, Prodotto.Destinatario destinatario, Fornitore fornitore) {
+        return new Prodotto(nome, prezzo, categoria, destinatario, fornitore);
+    }
 
     // acquisti misti (tutti clienti e tutti prodotti)
     public static void acquisti(String nome) {
@@ -81,10 +83,14 @@ public class Main {
     public static int prodottoAnnuale(String nome, int anno) {
         int count = 0;
         for (Acquisti a :  acquisti) {
-            if (a.getProdotti().getNome().equals(nome) && a.getData().getYear() == anno) {
+            if (a.getData().getYear() == anno) {
                 count++;
+                a.getProdotti().getNome();
             }
         }
+        acquisti.stream()
+                .filter(acquisti -> acquisti.getData().getYear() == anno)
+                .count();
         return count;
     }
 

@@ -1,0 +1,6 @@
+negazione(P):-
+	P, !, fail;
+	true.
+
+diff(X,Y):-
+    negazione(X=Y).

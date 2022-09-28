@@ -6,4 +6,3 @@ esiste_una_family_con_cognome_gen1(X):-
 
 salario_totale_family_con_cognome_gen1(X,SAL_TOT):-
     family(person(_,X,_,SAL_TOT),_,_).
-

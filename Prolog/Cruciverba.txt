@@ -1,29 +1,29 @@
+parola(d,o,g).
+parola(r,u,n).
+parola(t,o,p).
+parola(l,o,s,t).
+parola(f,o,u,r).
+parola(m,e,s,s).
+parola(f,i,v,e).
+parola(u,n,i,t).
+parola(b,a,k,e,r).
+parola(f,o,r,u,m).
+parola(s,u,p,e,r).
+parola(g,r,e,e,n).
+parola(v,a,n,i,s,h).
+parola(p,r,o,l,o,g).
+parola(w,o,n,d,e,r).
+parola(y,e,l,l,o,w).
 
 cruciverba(A1,A2,A3,A4,A5,C1,
            C2,C3,C4,C5,C6,
            A1,B1,C1,D1,
            A3,B3,C3,
            A5,B5,C5,D5):-
-	parola(A1,A2,A3,A4,A5),
-	parola(C1,C2,C3,C4,C5,C6),
-	parola(A1,B1,C1,D1),
-	parola(A3,B3,C3),
-	parola(A5,B5,C5,D5).
-
-
-parola(d,o,g).
-parola(f,o,u,r).
-parola(b,a,k,e,r).
-parola(p,r,o,l,o,g).
-parola(r,u,n).
-parola(l,o,s,t).
-parola(f,o,r,u,m).
-parola(v,a,n,i,s,h).
-parola(t,o,p).
-parola(m,e,s,s).
-parola(g,r,e,e,n).
-parola(w,o,n,d,e,r).
-parola(f,i,v,e).
-parola(u,n,i,t).
-parola(s,u,p,e,r).
-parola(y,e,l,l,o,w).
+    parola(A1,A2,A3,A4,A5),
+    parola(C1,C2,C3,C4,C5,C6),
+    parola(A1,B1,C1,D1),
+    parola(A3,B3,C3),
+    parola(A5,B5,C5,D5).
+	
+ % ?-cruciverba(A1,A2,A3,A4,A5,C1,C2,C3,C4,C5,C6,A1,B1,C1,D1,A3,B3,C3,A5,B5,C5,D5).

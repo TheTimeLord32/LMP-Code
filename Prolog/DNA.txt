@@ -18,5 +18,3 @@ edge(DNA1,DNA2):-
     append_ext([A,[B,B],C],DNA1),
     append_ext([A,[X,X],B,F],DNA2),
     nucleotida(X).
-    
-   

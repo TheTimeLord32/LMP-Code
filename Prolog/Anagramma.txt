@@ -25,4 +25,5 @@ permutazione([H|T],LPermPiuH):-
 lista_con_elemento_in_piu(X,L,[X|L]).
 lista_con_elemento_in_piu(X,[Y|L],[Y|Lcon]):-
     lista_con_elemento_in_piu(X,L,Lcon).
-    
+
+% ?- anagrammi([i,a,c,o], L).

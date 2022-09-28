@@ -9,9 +9,9 @@ public class Main {
     public static void main(String[] args) {
         float coefficienteNegozio = 0.25F;
 
-        componente.add(nuovoComponente("Tasti", "Azienda", 4, 12, 120));
-        componente.add(nuovoComponente("PCB", "Azienda", 3, 10, 1));
-        componente.add(nuovoComponente("Led", "Azienda", 2, 5, 120));
+        componente.add(nuovoComponente("Tasti", "Azienda1", 4, 12, 120));
+        componente.add(nuovoComponente("PCB", "Azienda2", 3, 10, 1));
+        componente.add(nuovoComponente("Led", "Azienda3", 2, 5, 120));
 
         prodotto.add(nuovoProdotto("Key01", "Tastiera", (calcoloTempo(componente) * coefficienteNegozio) + calcoloCosto(componente), 30, componente, calcoloTempo(componente), 10));
 
@@ -55,8 +55,11 @@ public class Main {
     }
 
     public static void listaProdotto(ArrayList<Prodotto> prod) {
+        int i;
         for (Prodotto p : prod) {
-            System.out.println("Nome: " + p.getNome() + ", Prezzo: " + p.getPrezzo() + ", Componenti: " + p.getComponente().stream().filter(componente1 -> Boolean.parseBoolean(componente1.getProvenienza())).toList());
+            for (i = 0; i < componente.size(); i++) {
+                System.out.println("Nome: " + p.getNome() + ", Prezzo: " + p.getPrezzo() + ", Componenti: " + p.getComponente().get(i).getProvenienza());
+            }
         }
     }
 }
