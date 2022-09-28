@@ -3,8 +3,8 @@ package Esame_21_06_21;
 import java.util.ArrayList;
 
 public class Main {
-    private static ArrayList<Prodotto> prodotto = new ArrayList<>();
-    private static ArrayList<Componente> componente = new ArrayList<>();
+    private static final ArrayList<Prodotto> prodotto = new ArrayList<>();
+    private static final ArrayList<Componente> componente = new ArrayList<>();
 
     public static void main(String[] args) {
         float coefficienteNegozio = 0.25F;
@@ -14,7 +14,7 @@ public class Main {
         componente.add(nuovoComponente("Led", "Azienda3", 2, 5, 120));
         componente.add(nuovoComponente("Cavi", "Azienda4", 1, 3, 120));
 
-        prodotto.add(nuovoProdotto("Key01", "Tastiera", 0, 30, new ArrayList<Componente>(), 0, 10));
+        prodotto.add(nuovoProdotto("Key01", "Tastiera", 0, 30, new ArrayList<>(), 0, 10));
         prodotto.get(0).getComponente().add(componente.get(0));
         prodotto.get(0).getComponente().add(componente.get(1));
         prodotto.get(0).setGiorniProduzione(calcoloTempo(prodotto.get(0).getComponente()));
