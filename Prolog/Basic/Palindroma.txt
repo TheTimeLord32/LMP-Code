@@ -5,4 +5,3 @@ reversed([],[]).
 reversed([H|T],LR1):-
     reversed(T,LR2),
     append(H,LR2,LR1).
-    
